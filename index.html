@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auth System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- ================= SIGN UP ================= -->
+    <div id="signupBox" class="box">
+
+      <h2>Create Account</h2>
+
+      <input type="text" id="su_username" placeholder="Username">
+
+      <div class="password-field">
+        <input type="password" id="su_password" placeholder="Password">
+        <span onclick="togglePassword('su_password', this)">Show</span>
+      </div>
+
+      <!-- TERMS (ONLY HERE — CORRECT PLACE) -->
+      <label class="terms">
+        <input type="checkbox" id="agree" required>
+        I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+      </label>
+
+      <button type="button" onclick="signup()">Create Account</button>
+
+      <p>
+        Already have an account?
+        <span onclick="showLogin()">Sign in</span>
+      </p>
+
+    </div>
+
+
+    <!-- ================= LOGIN ================= -->
+    <div id="loginBox" class="box hidden">
+
+      <h2>Sign In</h2>
+
+      <input type="text" id="li_username" placeholder="Username">
+
+      <div class="password-field">
+        <input type="password" id="li_password" placeholder="Password">
+        <span onclick="togglePassword('li_password', this)">Show</span>
+      </div>
+      <small id="passwordError" class="error-text"></small>
+
+      <button type="button" onclick="login()">Sign In</button>
+
+      <p>
+        Don’t have an account?
+        <span onclick="showSignup()">Sign up</span>
+      </p>
+
+      <p>
+        <a href="#" onclick="showForgot()">Forgot password?</a>
+      </p>
+
+    </div>
+
+
+    <!-- ================= FORGOT PASSWORD ================= -->
+    <div id="forgotBox" class="box hidden">
+  <h2>Reset Password</h2>
+
+  <input type="text" id="resetEmail" placeholder="Email or Username">
+
+  <button onclick="sendReset()">Send Reset Link</button>
+
+  <p class="info-text">
+    We will send a reset link to your email.
+  </p>
+
+  <span class="link-btn" onclick="showLogin()">Back to Login</span>
+</div>
+
+
+    <!-- ================= DASHBOARD ================= -->
+    <div id="dashboard" class="box hidden">
+
+      <h2>Welcome <span id="userDisplay"></span></h2>
+
+      <button onclick="logout()">Sign Out</button>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
